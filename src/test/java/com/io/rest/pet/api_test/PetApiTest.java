@@ -40,7 +40,7 @@ public class PetApiTest {
 
 
     @Test(priority = 1)
-    public void givenValidDetails_Create_PetData_Check_200Status() {
+    public void givenValidDetails_Create_PetData_Check_StatusCode200() {
 
         Category category = new Category();
         category.setId(34L);
@@ -90,7 +90,7 @@ public class PetApiTest {
 
 
     @Test(priority = 2)
-    public void givenPetID_Update_CheckStatus_200() {
+    public void givenPetID_Update_Check_StatusCode200() {
 
         RestAssured.given()
                 .when()
@@ -108,7 +108,7 @@ public class PetApiTest {
 
 
     @Test(priority = 3)
-    public void givenPetIdReturn_Pet_Data_StatusCode200_OK() {
+    public void givenPetIdReturn_Pet_Data_Check_StatusCode200() {
 
         JsonPath jsonPath = RestAssured.given()
                 .when()
@@ -126,7 +126,7 @@ public class PetApiTest {
 
 
     @Test(priority = 4)
-    public void givenPetId_Delete_Pet_StatusCode200() {
+    public void givenPetId_Delete_Pet_Check_StatusCode200() {
 
         RestAssured.given()
                 .when()
@@ -139,7 +139,7 @@ public class PetApiTest {
     }
 
     @Test(priority = 5)
-    public void givenPetID_Delete_InvalidPet_checkStatusCode404() {
+    public void givenPetID_Delete_InvalidPet_Check_StatusCode404() {
 
         RestAssured.given()
                 .when()
@@ -152,7 +152,7 @@ public class PetApiTest {
     }
 
     @Test(priority = 6)
-    public void givenInvalid_PetID_checkGetPetId_Status404() {
+    public void givenInvalid_PetID_checkGetPetId_Check_StatusCode404() {
         Response response =
                 get("/pet/" + invalid_id);
         assertTrue(response.getStatusCode()==404);
